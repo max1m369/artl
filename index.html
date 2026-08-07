@@ -148,22 +148,22 @@
 
     <div class="dirs">
       <a href="#contacts" class="dir reveal">
-        <img src="assets/img/card-small-architectural-forms.webp" alt="" loading="lazy"><h3>Малые архитектурные<br>формы</h3>
+        <img src="assets/icons/service-maf.webp" alt="" loading="lazy"><h3>Малые архитектурные<br>формы</h3>
       </a>
       <a href="#contacts" class="dir reveal">
-        <img src="assets/img/card-decorative-statues.webp" alt="" loading="lazy"><h3>Декоративные<br>статуи</h3>
+        <img src="assets/icons/service-statue.webp" alt="" loading="lazy"><h3>Декоративные<br>статуи</h3>
       </a>
       <a href="#contacts" class="dir reveal">
-        <img src="assets/img/card-entrance-groups.webp" alt="" loading="lazy"><h3>Входные<br>группы</h3>
+        <img src="assets/icons/service-entrance.webp" alt="" loading="lazy"><h3>Входные<br>группы</h3>
       </a>
       <a href="#contacts" class="dir reveal">
-        <img src="assets/img/card-urban-spaces.webp" alt="" loading="lazy"><h3>Городские<br>пространства</h3>
+        <img src="assets/icons/service-city.webp" alt="" loading="lazy"><h3>Городские<br>пространства</h3>
       </a>
       <a href="#contacts" class="dir reveal">
-        <img src="assets/img/card-art-installations.webp" alt="" loading="lazy"><h3>Арт-объекты<br>и инсталляции</h3>
+        <img src="assets/icons/service-restaurant.webp" alt="" loading="lazy"><h3>Арт-объекты<br>и инсталляции</h3>
       </a>
       <a href="#contacts" class="dir reveal">
-        <img src="assets/img/card-floristics-greening.webp" alt="" loading="lazy"><h3>Флористика<br>и озеленение</h3>
+        <img src="assets/icons/service-floristics.webp" alt="" loading="lazy"><h3>Флористика<br>и озеленение</h3>
       </a>
     </div>
   </div>
@@ -241,44 +241,67 @@
 <!-- ================= 7. ЗАЯВКА + КОНТАКТЫ ================= -->
 <section class="section cta" id="contacts">
   <div class="wrap cta__grid">
-    <div class="cta__text reveal">
-      <h2>Есть проект?<br>Давайте создадим<br>новую точку притяжения</h2>
+    <div class="cta__left reveal">
+      <p class="cta__eyebrow">Начать проект</p>
+      <h2>Расскажите, какой объект <br><i>необходимо оформить?</i></h2>
+      <p class="cta__sub">Сопровождаем проект и объединяем работу дизайнеров, производства и монтажной команды.</p>
+      
+      <div class="cta__contacts">
+        <div class="cline-row">
+          <span class="cline-lbl">Телефон</span>
+          <a href="tel:+74950000000" class="cline">+7 (495) 000-00-00</a>
+        </div>
+        <div class="cline-row">
+          <span class="cline-lbl">E-mail</span>
+          <a href="mailto:hello@artneo.ru" class="cline">hello@artneo.ru</a>
+        </div>
+        <div class="cline-row">
+          <span class="cline-lbl">География</span>
+          <p class="cline cline--static">Москва и Московская область</p>
+        </div>
+      </div>
     </div>
 
     <figure class="cta__media reveal">
       <img src="assets/img/cta-statue.webp" alt="Античный бюст" loading="lazy">
+      <img src="assets/icons/logo-mark_round.svg" alt="" class="cta__logo" loading="lazy">
     </figure>
 
-    <form class="form reveal" id="requestForm" novalidate>
-      <label class="field">
-        <input type="text" name="name" placeholder="Ваше имя" required>
-        <em class="field__error">Укажите имя</em>
-      </label>
-      <label class="field">
-        <input type="tel" name="phone" placeholder="Телефон" required>
-        <em class="field__error">Укажите корректный телефон</em>
-      </label>
-      <label class="field">
-        <textarea name="message" rows="3" placeholder="Расскажите о проекте"></textarea>
-      </label>
-      <label class="check">
-        <input type="checkbox" name="agree" required>
-        <span>Согласен на обработку персональных данных</span>
-      </label>
-      <button type="submit" class="btn btn--gold btn--wide">Отправить заявку</button>
-      <p class="form__status" id="formStatus" role="status"></p>
-    </form>
-
-    <div class="cta__contacts reveal">
-      <a href="tel:+79991234567" class="cline"><img src="assets/icons/contact-phone.svg" alt="">+7 (999) 123-45-67</a>
-      <a href="mailto:info@company.ru" class="cline"><img src="assets/icons/contact-mail.svg" alt="">info@company.ru</a>
-      <p class="cline cline--static"><img src="assets/icons/contact-pin.svg" alt="">Москва, ул. Примерная, 123</p>
-
-      <div class="socs">
-        <a href="#"><img src="assets/icons/soc-telegram.svg" alt="">Telegram</a>
-        <a href="#"><img src="assets/icons/soc-whatsapp.svg" alt="">WhatsApp</a>
-        <a href="#"><img src="assets/icons/soc-instagram.svg" alt="">Instagram</a>
-      </div>
+    <div class="cta__right reveal">
+      <h3 class="form__title">Оставить заявку</h3>
+      <form class="form form--dark" id="requestForm" novalidate>
+        <div class="form__row">
+          <label class="field">
+            <span class="field__lbl">ВАШЕ ИМЯ</span>
+            <input type="text" name="name" placeholder="" required>
+            <em class="field__error">Укажите имя</em>
+          </label>
+          <label class="field">
+            <span class="field__lbl">ТЕЛЕФОН</span>
+            <input type="tel" name="phone" placeholder="+7" required>
+            <em class="field__error">Укажите корректный телефон</em>
+          </label>
+        </div>
+        <label class="field field--full field--select">
+          <span class="field__lbl">ТИП ОБЪЕКТА</span>
+          <select name="type" required>
+            <option value="Ресторан">Ресторан</option>
+            <option value="Парк">Парк</option>
+            <option value="ТЦ">ТЦ</option>
+            <option value="Другое">Другое</option>
+          </select>
+        </label>
+        <label class="field field--full">
+          <span class="field__lbl">ЧТО НЕОБХОДИМО ОФОРМИТЬ?</span>
+          <input type="text" name="message" placeholder="">
+        </label>
+        
+        <div class="form__footer">
+          <p class="form__policy">Нажимая кнопку, вы соглашаетесь с политикой обработки данных.</p>
+          <button type="submit" class="btn btn--text">ОТПРАВИТЬ <img src="assets/icons/ui-arrow.svg" alt=""></button>
+        </div>
+        <p class="form__status" id="formStatus" role="status"></p>
+      </form>
     </div>
   </div>
 </section>
