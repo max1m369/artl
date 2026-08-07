@@ -1,0 +1,123 @@
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* --- Шапка при скролле --- */
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('is-stuck', scrollY > 60);
+  onScroll(); addEventListener('scroll', onScroll, { passive: true });
+
+  /* --- Мобильное меню --- */
+  const burger = document.querySelector('.burger');
+  const nav = document.getElementById('nav');
+  const overlay = document.getElementById('overlay');
+  const toggle = (open) => {
+    nav.classList.toggle('is-open', open);
+    overlay.classList.toggle('is-visible', open);
+    burger.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  burger.addEventListener('click', () => toggle(!nav.classList.contains('is-open')));
+  overlay.addEventListener('click', () => toggle(false));
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggle(false)));
+
+  /* --- Появление блоков --- */
+  const io = new IntersectionObserver((es) => {
+    es.forEach((e, i) => {
+      if (!e.isIntersecting) return;
+      setTimeout(() => e.target.classList.add('is-visible'), i * 55);
+      io.unobserve(e.target);
+    });
+  }, { threshold: .1, rootMargin: '0px 0px -40px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* --- Активный пункт меню --- */
+  const links = [...document.querySelectorAll('.nav__link')];
+  const spy = new IntersectionObserver((es) => {
+    es.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === '#' + e.target.id));
+    });
+  }, { rootMargin: '-30% 0px -60%' });
+  document.querySelectorAll('main section[id]').forEach(s => spy.observe(s));
+
+  /* --- Счётчики 250+ / 10+ / 50+ --- */
+  document.querySelectorAll('.stats__num').forEach(el => {
+    const target = parseInt(el.textContent, 10);
+    const suffix = el.querySelector('i')?.outerHTML || '';
+    const co = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      co.disconnect();
+      let cur = 0;
+      const step = Math.max(1, Math.round(target / 45));
+      const t = setInterval(() => {
+        cur = Math.min(target, cur + step);
+        el.innerHTML = cur + suffix;
+        if (cur >= target) clearInterval(t);
+      }, 28);
+    }, { threshold: .6 });
+    co.observe(el);
+  });
+
+  /* --- Лайтбокс галереи --- */
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  const shots = [...document.querySelectorAll('#galleryGrid img')];
+  let idx = 0;
+  const show = i => { idx = (i + shots.length) % shots.length; lbImg.src = shots[idx].src; lbImg.alt = shots[idx].alt; };
+  const close = () => { lb.classList.remove('is-open'); lb.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; };
+  shots.forEach((img, i) => img.addEventListener('click', () => {
+    show(i); lb.classList.add('is-open'); lb.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
+  }));
+  lb.querySelector('.lightbox__close').addEventListener('click', close);
+  lb.querySelector('.lightbox__nav--prev').addEventListener('click', () => show(idx - 1));
+  lb.querySelector('.lightbox__nav--next').addEventListener('click', () => show(idx + 1));
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  addEventListener('keydown', e => {
+    if (!lb.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+  });
+
+  /* --- Маска телефона --- */
+  document.querySelector('input[name="phone"]')?.addEventListener('input', e => {
+    let d = e.target.value.replace(/\D/g, '');
+    if (d.startsWith('8')) d = '7' + d.slice(1);
+    if (!d.startsWith('7')) d = '7' + d;
+    d = d.slice(0, 11);
+    let o = '+7';
+    if (d.length > 1) o += ' (' + d.slice(1, 4);
+    if (d.length >= 5) o += ') ' + d.slice(4, 7);
+    if (d.length >= 8) o += '-' + d.slice(7, 9);
+    if (d.length >= 10) o += '-' + d.slice(9, 11);
+    e.target.value = o;
+  });
+
+  /* --- Форма --- */
+  const form = document.getElementById('requestForm');
+  const status = document.getElementById('formStatus');
+  form?.addEventListener('submit', async e => {
+    e.preventDefault();
+    let ok = true;
+    form.querySelectorAll('[required]').forEach(inp => {
+      const f = inp.closest('.field');
+      const valid = inp.type === 'checkbox' ? inp.checked
+        : inp.name === 'phone' ? inp.value.replace(/\D/g, '').length === 11
+        : inp.value.trim().length > 1;
+      f?.classList.toggle('has-error', !valid);
+      if (!valid) ok = false;
+    });
+    if (!ok) { status.textContent = 'Проверьте заполнение полей.'; return; }
+    status.textContent = 'Отправляем…';
+    try {
+      // TODO: свой обработчик — send.php / Bitrix24 / amoCRM / Telegram Bot API
+      await fetch('/send.php', { method: 'POST', body: new FormData(form) });
+      form.reset();
+      status.textContent = 'Спасибо! Свяжемся с вами в ближайшее время.';
+    } catch {
+      status.textContent = 'Не удалось отправить. Позвоните нам, пожалуйста.';
+    }
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+});

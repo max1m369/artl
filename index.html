@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Архитектура в деталях — малые архитектурные формы и арт-объекты в Москве</title>
+<meta name="description" content="Проектируем и реализуем малые архитектурные формы, декор, скульптуры и общественные пространства, которые формируют уникальный облик города.">
+<meta property="og:title" content="Архитектура в деталях">
+<meta property="og:image" content="assets/img/og-cover.webp">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ================= ШАПКА ================= -->
+<header class="header" id="header">
+  <div class="wrap header__inner">
+    <a href="#hero" class="logo" aria-label="Архитектура в деталях">
+      <img src="assets/icons/logo-mark.svg" alt="Архитектура в деталях">
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#projects"   class="nav__link">Проекты</a>
+      <a href="#services"   class="nav__link">Услуги</a>
+      <a href="#about"      class="nav__link">О компании</a>
+      <a href="#process"    class="nav__link">Этапы работы</a>
+      <a href="#contacts"   class="nav__link">Контакты</a>
+      <a href="tel:+79991234567" class="nav__phone nav__phone--mob">+7 (999) 123-45-67</a>
+    </nav>
+
+    <div class="header__right">
+      <a href="tel:+79991234567" class="header__phone">+7 (999) 123-45-67</a>
+      <button class="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<div class="overlay" id="overlay"></div>
+
+<main>
+
+<!-- ================= 1. HERO ================= -->
+<section class="hero" id="hero">
+  <div class="hero__media"><img src="assets/img/hero.webp" alt="Арт-объект с классическими скульптурами" fetchpriority="high"></div>
+
+  <div class="wrap hero__inner">
+    <p class="eyebrow reveal">Архитектура в деталях</p>
+    <h1 class="reveal">Создаем арт-объекты,<br>которые становятся<br>точками притяжения</h1>
+    <p class="hero__lead reveal">
+      Проектируем и реализуем малые архитектурные формы,<br>
+      декор, скульптуры и общественные пространства,<br>
+      которые формируют уникальный облик города.
+    </p>
+    <div class="hero__actions reveal">
+      <a href="#projects" class="btn btn--gold">Смотреть проекты</a>
+      <a href="#contacts" class="btn btn--link">Получить консультацию <img src="assets/icons/ui-arrow.svg" alt=""></a>
+    </div>
+  </div>
+
+  <div class="marquee">
+    <div class="marquee__track">
+      <span>Малая архитектурная форма<i>•</i>Декор<i>•</i>Флористика<i>•</i>Входные группы<i>•</i>Оформление ресторанов и городских пространств Москвы<i>•</i></span>
+      <span>Малая архитектурная форма<i>•</i>Декор<i>•</i>Флористика<i>•</i>Входные группы<i>•</i>Оформление ресторанов и городских пространств Москвы<i>•</i></span>
+      <span>Малая архитектурная форма<i>•</i>Декор<i>•</i>Флористика<i>•</i>Входные группы<i>•</i>Оформление ресторанов и городских пространств Москвы<i>•</i></span>
+      <span>Малая архитектурная форма<i>•</i>Декор<i>•</i>Флористика<i>•</i>Входные группы<i>•</i>Оформление ресторанов и городских пространств Москвы<i>•</i></span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. О КОМПАНИИ + ЦИФРЫ ================= -->
+<section class="about" id="about">
+  <figure class="about__media reveal">
+    <img src="assets/img/second_section.webp" alt="Авторский арт-объект" loading="lazy">
+  </figure>
+
+  <div class="about__left">
+    <div class="about__box">
+      <p class="eyebrow reveal">Мы создаем</p>
+      <h2 class="reveal">Объекты, которые<br>делают город<br>уникальным</h2>
+      <a href="#services" class="btn btn--link reveal">О компании <img src="assets/icons/ui-arrow.svg" alt=""></a>
+    </div>
+
+    <ul class="stats">
+      <li class="reveal"><span class="stats__num">250<i>+</i></span><span class="stats__txt">реализованных<br>проектов</span></li>
+      <li class="reveal"><span class="stats__num">10<i>+</i></span><span class="stats__txt">лет опыта</span></li>
+      <li class="reveal"><span class="stats__num">50<i>+</i></span><span class="stats__txt">профессионалов<br>в команде</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 3. ПРОЕКТЫ ================= -->
+<section class="section section--light projects" id="projects">
+  <div class="wrap">
+    <div class="secbar reveal">
+      <p class="eyebrow eyebrow--dark">Проекты</p>
+      <a href="#gallery" class="btn btn--link btn--link-dark">Смотреть все проекты <img src="assets/icons/ui-arrow-dark.svg" alt=""></a>
+    </div>
+
+    <!-- Мозаика: 1 крупная слева + 4 справа. Добавление карточки — копируете <article> -->
+    <div class="mosaic">
+      <article class="pcard pcard--tall reveal">
+        <a href="#"><img src="assets/img/project-park.webp" alt="Парковая зона" loading="lazy">
+          <div class="pcard__body"><h3>Парковая зона</h3><p>Москва</p></div>
+          <span class="pcard__arrow"><img src="assets/icons/ui-arrow.svg" alt=""></span>
+        </a>
+      </article>
+
+      <article class="pcard reveal">
+        <a href="#"><img src="assets/img/project-medicine.webp" alt="Московская медицина" loading="lazy">
+          <div class="pcard__body"><h3>Московская медицина</h3><p>Брендированный павильон</p></div>
+          <span class="pcard__arrow"><img src="assets/icons/ui-arrow.svg" alt=""></span>
+        </a>
+      </article>
+
+      <article class="pcard reveal">
+        <a href="#"><img src="assets/img/project-sport.webp" alt="Спортивные объекты" loading="lazy">
+          <div class="pcard__body"><h3>Спортивные объекты</h3><p>Для парков и комплексов</p></div>
+          <span class="pcard__arrow"><img src="assets/icons/ui-arrow.svg" alt=""></span>
+        </a>
+      </article>
+
+      <article class="pcard reveal">
+        <a href="#"><img src="assets/img/project-restaurant.webp" alt="Ресторан La Vie" loading="lazy">
+          <div class="pcard__body"><h3>Ресторан La Vie</h3><p>Москва</p></div>
+          <span class="pcard__arrow"><img src="assets/icons/ui-arrow.svg" alt=""></span>
+        </a>
+      </article>
+
+      <article class="pcard reveal">
+        <a href="#"><img src="assets/img/project-entrance.webp" alt="Входная группа" loading="lazy">
+          <div class="pcard__body"><h3>Входная группа</h3><p>Частный проект</p></div>
+          <span class="pcard__arrow"><img src="assets/icons/ui-arrow.svg" alt=""></span>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 4. НАПРАВЛЕНИЯ / УСЛУГИ ================= -->
+<section class="section section--light section--top0 services" id="services">
+  <div class="wrap">
+    <div class="secbar reveal">
+      <p class="eyebrow eyebrow--dark">Наши направления</p>
+      <a href="#contacts" class="btn btn--link btn--link-dark">Все услуги <img src="assets/icons/ui-arrow-dark.svg" alt=""></a>
+    </div>
+
+    <div class="dirs">
+      <a href="#contacts" class="dir reveal">
+        <img src="assets/img/card-small-architectural-forms.webp" alt="" loading="lazy"><h3>Малые архитектурные<br>формы</h3>
+      </a>
+      <a href="#contacts" class="dir reveal">
+        <img src="assets/img/card-decorative-statues.webp" alt="" loading="lazy"><h3>Декоративные<br>статуи</h3>
+      </a>
+      <a href="#contacts" class="dir reveal">
+        <img src="assets/img/card-entrance-groups.webp" alt="" loading="lazy"><h3>Входные<br>группы</h3>
+      </a>
+      <a href="#contacts" class="dir reveal">
+        <img src="assets/img/card-urban-spaces.webp" alt="" loading="lazy"><h3>Городские<br>пространства</h3>
+      </a>
+      <a href="#contacts" class="dir reveal">
+        <img src="assets/img/card-art-installations.webp" alt="" loading="lazy"><h3>Арт-объекты<br>и инсталляции</h3>
+      </a>
+      <a href="#contacts" class="dir reveal">
+        <img src="assets/img/card-floristics-greening.webp" alt="" loading="lazy"><h3>Флористика<br>и озеленение</h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 5. ГАЛЕРЕЯ (фото добавляете вручную) =================
+     Удалить блок — удалить секцию целиком, на остальное не влияет. -->
+<section class="section section--light section--top0 gallery" id="gallery">
+  <div class="wrap">
+    <div class="secbar reveal">
+      <p class="eyebrow eyebrow--dark">Галерея работ</p>
+    </div>
+
+    <!--
+      КАК ДОБАВИТЬ ФОТО:
+      1) положить файл в assets/gallery/
+      2) скопировать <figure> ниже, поменять src и alt
+      3) класс is-tall — двойная высота, is-wide — на две колонки
+      Клик открывает лайтбокс автоматически, ничего в JS править не нужно.
+    -->
+    <div class="ggrid" id="galleryGrid">
+      <figure class="gcard reveal"><img src="assets/gallery/01.webp" alt="Работа 1" loading="lazy"></figure>
+      <figure class="gcard is-tall reveal"><img src="assets/gallery/02.webp" alt="Работа 2" loading="lazy"></figure>
+      <figure class="gcard reveal"><img src="assets/gallery/03.webp" alt="Работа 3" loading="lazy"></figure>
+      <figure class="gcard reveal"><img src="assets/gallery/04.webp" alt="Работа 4" loading="lazy"></figure>
+      <figure class="gcard is-wide reveal"><img src="assets/gallery/05.webp" alt="Работа 5" loading="lazy"></figure>
+      <figure class="gcard reveal"><img src="assets/gallery/06.webp" alt="Работа 6" loading="lazy"></figure>
+      
+      <figure class="gcard reveal"><img src="assets/gallery/01.webp" alt="Работа 1 дубль" loading="lazy"></figure>
+      <figure class="gcard is-tall reveal"><img src="assets/gallery/02.webp" alt="Работа 2 дубль" loading="lazy"></figure>
+      <figure class="gcard reveal"><img src="assets/gallery/03.webp" alt="Работа 3 дубль" loading="lazy"></figure>
+      <figure class="gcard reveal"><img src="assets/gallery/04.webp" alt="Работа 4 дубль" loading="lazy"></figure>
+      <figure class="gcard is-wide reveal"><img src="assets/gallery/05.webp" alt="Работа 5 дубль" loading="lazy"></figure>
+      <figure class="gcard reveal"><img src="assets/gallery/06.webp" alt="Работа 6 дубль" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 6. КАК МЫ РАБОТАЕМ ================= -->
+<section class="section process" id="process">
+  <img src="assets/img/process-statue.webp" alt="" class="process__bg-statue">
+  <div class="wrap">
+    <p class="eyebrow reveal">Как мы работаем</p>
+
+    <ol class="steps">
+      <li class="step reveal">
+        <span class="step__num">01</span>
+        <h3>Концепция</h3>
+        <p>Погружение в задачу<br>и разработка идеи</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__num">02</span>
+        <h3>Проектирование</h3>
+        <p>3D-моделирование<br>и визуализация</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__num">03</span>
+        <h3>Производство</h3>
+        <p>Изготовление на собственном<br>производстве</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__num">04</span>
+        <h3>Монтаж</h3>
+        <p>Доставка и установка<br>на объекте</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__num">05</span>
+        <h3>Сдача объекта</h3>
+        <p>Передача объекта<br>и гарантийное сопровождение</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= 7. ЗАЯВКА + КОНТАКТЫ ================= -->
+<section class="section cta" id="contacts">
+  <div class="wrap cta__grid">
+    <div class="cta__text reveal">
+      <h2>Есть проект?<br>Давайте создадим<br>новую точку притяжения</h2>
+    </div>
+
+    <figure class="cta__media reveal">
+      <img src="assets/img/cta-statue.webp" alt="Античный бюст" loading="lazy">
+    </figure>
+
+    <form class="form reveal" id="requestForm" novalidate>
+      <label class="field">
+        <input type="text" name="name" placeholder="Ваше имя" required>
+        <em class="field__error">Укажите имя</em>
+      </label>
+      <label class="field">
+        <input type="tel" name="phone" placeholder="Телефон" required>
+        <em class="field__error">Укажите корректный телефон</em>
+      </label>
+      <label class="field">
+        <textarea name="message" rows="3" placeholder="Расскажите о проекте"></textarea>
+      </label>
+      <label class="check">
+        <input type="checkbox" name="agree" required>
+        <span>Согласен на обработку персональных данных</span>
+      </label>
+      <button type="submit" class="btn btn--gold btn--wide">Отправить заявку</button>
+      <p class="form__status" id="formStatus" role="status"></p>
+    </form>
+
+    <div class="cta__contacts reveal">
+      <a href="tel:+79991234567" class="cline"><img src="assets/icons/contact-phone.svg" alt="">+7 (999) 123-45-67</a>
+      <a href="mailto:info@company.ru" class="cline"><img src="assets/icons/contact-mail.svg" alt="">info@company.ru</a>
+      <p class="cline cline--static"><img src="assets/icons/contact-pin.svg" alt="">Москва, ул. Примерная, 123</p>
+
+      <div class="socs">
+        <a href="#"><img src="assets/icons/soc-telegram.svg" alt="">Telegram</a>
+        <a href="#"><img src="assets/icons/soc-whatsapp.svg" alt="">WhatsApp</a>
+        <a href="#"><img src="assets/icons/soc-instagram.svg" alt="">Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <span>© <span id="year"></span> Архитектура в деталях</span>
+    <span>Все права защищены</span>
+    <a href="#">Политика конфиденциальности</a>
+  </div>
+</footer>
+
+</main>
+
+<!-- Лайтбокс -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox__close" aria-label="Закрыть">&times;</button>
+  <button class="lightbox__nav lightbox__nav--prev" aria-label="Назад">&#8249;</button>
+  <img src="" alt="" id="lightboxImg">
+  <button class="lightbox__nav lightbox__nav--next" aria-label="Вперёд">&#8250;</button>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
