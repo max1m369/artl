@@ -110,12 +110,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!ok) { status.textContent = 'Проверьте заполнение полей.'; return; }
     status.textContent = 'Отправляем…';
     try {
-      // TODO: свой обработчик — send.php / Bitrix24 / amoCRM / Telegram Bot API
-      await fetch('/send.php', { method: 'POST', body: new FormData(form) });
-      form.reset();
-      status.textContent = 'Спасибо! Свяжемся с вами в ближайшее время.';
+      const payload = {
+        'Имя': form.querySelector('[name="name"]')?.value || '',
+        'Телефон': form.querySelector('[name="phone"]')?.value || '',
+        'Тип объекта': form.querySelector('[name="type"]')?.value || 'Не указан',
+        'Что необходимо оформить': form.querySelector('[name="message"]')?.value || 'Не указано',
+        '_subject': 'Новая заявка с сайта АРТНЕО',
+        '_captcha': 'false'
+      };
+      const res = await fetch('https://formsubmit.co/ajax/aliancekd@yandex.ru', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) {
+        form.reset();
+        status.textContent = 'Спасибо! Свяжемся с вами в ближайшее время.';
+      } else {
+        throw new Error('Submit failed');
+      }
     } catch {
-      status.textContent = 'Не удалось отправить. Позвоните нам, пожалуйста.';
+      status.textContent = 'Не удалось отправить. Позвоните нам по телефону +7 (925) 535-30-08.';
     }
   });
 
