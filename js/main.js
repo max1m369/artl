@@ -61,16 +61,62 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --- Лайтбокс галереи --- */
   const lb = document.getElementById('lightbox');
   const lbImg = document.getElementById('lightboxImg');
-  const shots = [...document.querySelectorAll('#galleryGrid img')];
+  const lbVideo = document.getElementById('lightboxVideo');
+  const items = [...document.querySelectorAll('#galleryGrid .gcard')];
   let idx = 0;
-  const show = i => { idx = (i + shots.length) % shots.length; lbImg.src = shots[idx].src; lbImg.alt = shots[idx].alt; };
-  const close = () => { lb.classList.remove('is-open'); lb.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; };
-  shots.forEach((img, i) => img.addEventListener('click', () => {
-    show(i); lb.classList.add('is-open'); lb.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
+
+  const show = i => {
+    idx = (i + items.length) % items.length;
+    const card = items[idx];
+    const img = card.querySelector('img');
+    const video = card.querySelector('video');
+
+    if (video) {
+      if (lbImg) lbImg.style.display = 'none';
+      if (lbVideo) {
+        lbVideo.style.display = 'block';
+        const fullSrc = video.dataset.fullsrc || video.currentSrc || video.src;
+        lbVideo.src = fullSrc;
+        lbVideo.currentTime = 0;
+        lbVideo.muted = false;
+        lbVideo.play().catch(() => {});
+      }
+    } else if (img) {
+      if (lbVideo) {
+        lbVideo.pause();
+        lbVideo.currentTime = 0;
+        lbVideo.src = '';
+        lbVideo.style.display = 'none';
+      }
+      if (lbImg) {
+        lbImg.style.display = 'block';
+        lbImg.src = img.src;
+        lbImg.alt = img.alt || '';
+      }
+    }
+  };
+
+  const close = () => {
+    lb.classList.remove('is-open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lbVideo) {
+      lbVideo.pause();
+      lbVideo.currentTime = 0;
+      lbVideo.src = '';
+      lbVideo.style.display = 'none';
+    }
+  };
+
+  items.forEach((item, i) => item.addEventListener('click', () => {
+    show(i);
+    lb.classList.add('is-open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
   }));
-  lb.querySelector('.lightbox__close').addEventListener('click', close);
-  lb.querySelector('.lightbox__nav--prev').addEventListener('click', () => show(idx - 1));
-  lb.querySelector('.lightbox__nav--next').addEventListener('click', () => show(idx + 1));
+  lb.querySelector('.lightbox__close')?.addEventListener('click', close);
+  lb.querySelector('.lightbox__nav--prev')?.addEventListener('click', () => show(idx - 1));
+  lb.querySelector('.lightbox__nav--next')?.addEventListener('click', () => show(idx + 1));
   lb.addEventListener('click', e => { if (e.target === lb) close(); });
   addEventListener('keydown', e => {
     if (!lb.classList.contains('is-open')) return;

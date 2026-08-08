@@ -101,8 +101,8 @@
     <!-- Мозаика: 1 крупная слева + 4 справа. Добавление карточки — копируете <article> -->
     <div class="mosaic">
       <article class="pcard pcard--tall reveal">
-        <a href="#"><img src="assets/img/project-park.webp" alt="Парковая зона" loading="lazy">
-          <div class="pcard__body"><h3>Парковая зона</h3><p>Москва</p></div>
+        <a href="#"><img src="assets/img/project-park.webp" alt="Входная группа" loading="lazy">
+          <div class="pcard__body"><h3>Входная группа</h3><p>Москва</p></div>
           <span class="pcard__arrow"><img src="assets/icons/ui-arrow.svg" alt=""></span>
         </a>
       </article>
@@ -129,8 +129,8 @@
       </article>
 
       <article class="pcard reveal">
-        <a href="#"><img src="assets/img/project-entrance.webp" alt="Входная группа" loading="lazy">
-          <div class="pcard__body"><h3>Входная группа</h3><p>Частный проект</p></div>
+        <a href="#"><img src="assets/img/project-entrance.webp" alt="Парковая зона" loading="lazy">
+          <div class="pcard__body"><h3>Парковая зона</h3><p>Частный проект</p></div>
           <span class="pcard__arrow"><img src="assets/icons/ui-arrow.svg" alt=""></span>
         </a>
       </article>
@@ -148,7 +148,7 @@
 
     <div class="dirs">
       <a href="#contacts" class="dir reveal">
-        <img src="assets/icons/card-small-architectural-forms.webp" alt="" loading="lazy"><h3>Малые архитектурные<br>формы</h3>
+        <img src="assets/icons/card-small-architectural-forms.webp" alt="" loading="lazy"><h3>Малые<br>архитектурные<br>формы</h3>
       </a>
       <a href="#contacts" class="dir reveal">
         <img src="assets/icons/card-decorative-statues.webp" alt="" loading="lazy"><h3>Декоративные<br>статуи</h3>
@@ -186,13 +186,26 @@
     -->
     <div class="ggrid" id="galleryGrid">
       <figure class="gcard is-wide is-tall reveal"><img src="assets/gallery/1.webp" alt="Работа 1" loading="lazy"></figure>
-      <figure class="gcard is-tall reveal"><img src="assets/gallery/3.webp" alt="Работа 2" loading="lazy"></figure>
-      <figure class="gcard is-tall reveal"><img src="assets/gallery/03.webp" alt="Работа 3" loading="lazy"></figure>
-      <figure class="gcard reveal"><img src="assets/gallery/2.webp" alt="Работа 4" loading="lazy"></figure>
-      <figure class="gcard is-tall reveal"><img src="assets/gallery/05.webp" alt="Работа 5" loading="lazy"></figure>
-      <figure class="gcard reveal"><img src="assets/gallery/06.webp" alt="Работа 6" loading="lazy"></figure>
-      <figure class="gcard reveal"><img src="assets/gallery/01.webp" alt="Работа 7" loading="lazy"></figure>
-      <figure class="gcard reveal"><img src="assets/gallery/02.webp" alt="Работа 8" loading="lazy"></figure>
+      <figure class="gcard is-tall reveal">
+        <video src="assets/gallery/video-card.webm" data-fullsrc="assets/gallery/video-with-audio.mp4" autoplay loop muted playsinline></video>
+        <div class="gcard__video-overlay">
+          <div class="gcard__badge"><span>VK Fest</span></div>
+        </div>
+        <div class="gcard__play-tag">
+          <span>видео</span>
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.6582 9.28638C18.098 10.1862 18.8178 10.6361 19.0647 11.2122C19.2803 11.7152 19.2803 12.2847 19.0647 12.7878C18.8178 13.3638 18.098 13.8137 16.6582 14.7136L9.896 18.94C8.29805 19.9387 7.49907 20.4381 6.83973 20.385C6.26501 20.3388 5.73818 20.0469 5.3944 19.584C5 19.053 5 18.1108 5 16.2264V7.77357C5 5.88919 5 4.94701 5.3944 4.41598C5.73818 3.9531 6.26501 3.66111 6.83973 3.6149C7.49907 3.5619 8.29805 4.06126 9.896 5.05998L16.6582 9.28638Z" stroke="#C08A3E" stroke-width="2" stroke-linejoin="round" fill="rgba(192, 138, 62, 0.25)"/>
+          </svg>
+        </div>
+      </figure>
+      <figure class="gcard reveal"><img src="assets/gallery/03.webp" alt="Работа 3" loading="lazy"></figure>
+      <figure class="gcard is-tall reveal"><img src="assets/gallery/01.webp" alt="Работа 4" loading="lazy"></figure>
+
+      <figure class="gcard reveal"><img src="assets/gallery/2.webp" alt="Работа 5" loading="lazy"></figure>
+      <figure class="gcard is-tall reveal"><img src="assets/gallery/05.webp" alt="Работа 6" loading="lazy"></figure>
+      <figure class="gcard reveal"><img src="assets/gallery/06.webp" alt="Работа 7" loading="lazy"></figure>
+
+      <figure class="gcard reveal"><img src="assets/gallery/31.webp" alt="Осеннее оформление фасада" loading="lazy"></figure>
       <figure class="gcard is-wide reveal"><img src="assets/gallery/02.webp" alt="Работа 9" loading="lazy"></figure>
     </div>
   </div>
@@ -316,6 +329,7 @@
   <button class="lightbox__close" aria-label="Закрыть">&times;</button>
   <button class="lightbox__nav lightbox__nav--prev" aria-label="Назад">&#8249;</button>
   <img src="" alt="" id="lightboxImg">
+  <video src="" id="lightboxVideo" controls playsinline style="display:none;max-width:90vw;max-height:86vh;object-fit:contain;"></video>
   <button class="lightbox__nav lightbox__nav--next" aria-label="Вперёд">&#8250;</button>
 </div>
 
