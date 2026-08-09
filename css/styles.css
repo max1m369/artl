@@ -85,7 +85,8 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
 .nav__phone--mob{display:none}
 
 .header__right{display:flex;align-items:center;gap:18px}
-.header__phone{font-family:'Montserrat',sans-serif;font-size:.72rem;letter-spacing:.1em;color:#fff}
+.header__phone{font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:500;letter-spacing:.1em;color:var(--gold);transition:color .3s var(--ease)}
+.header__phone:hover{color:var(--gold-2)}
 .burger{display:none;width:42px;height:42px;border-radius:50%;background:var(--black-3);border:1px solid var(--line-d);
   position:relative;cursor:pointer;flex:none;transition:.3s var(--ease)}
 .burger:hover{background:var(--gold);border-color:var(--gold)}
