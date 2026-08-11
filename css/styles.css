@@ -158,6 +158,52 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
 .pcard__arrow img{width:22px}
 .pcard:hover .pcard__arrow{opacity:1;transform:translateX(5px)}
 
+/* ================= БЕГУЩАЯ СТРОКА ================= */
+.ticker{
+  width:100%;
+  overflow:hidden;
+  background:var(--black-2);
+  border:1px solid var(--line-d);
+  padding:16px 0;
+  margin-top:clamp(20px,2.2vw,32px);
+  user-select:none;
+}
+.ticker__track{
+  display:flex;
+  width:max-content;
+  animation:ticker 34s linear infinite;
+}
+.ticker:hover .ticker__track{
+  animation-play-state:paused;
+}
+.ticker__group{
+  display:flex;
+  align-items:center;
+  white-space:nowrap;
+  flex-shrink:0;
+}
+.ticker__group span{
+  font-family:'Montserrat',sans-serif;
+  font-size:clamp(.8rem,1.05vw,1rem);
+  font-weight:500;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.9);
+}
+.ticker__sep{
+  font-style:normal;
+  color:var(--gold);
+  margin:0 clamp(20px,2.5vw,36px);
+  font-size:.72rem;
+  flex:none;
+  display:inline-block;
+  opacity:.9;
+}
+@keyframes ticker{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(-50%);}
+}
+
 /* ================= НАПРАВЛЕНИЯ ================= */
 .dirs{display:grid;grid-template-columns:repeat(6,1fr);gap:clamp(10px,1.1vw,18px)}
 .dir{position:relative;display:block;overflow:hidden;aspect-ratio:3/4;background:var(--black-3)}
@@ -282,8 +328,8 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
 .cta__left{padding:60px 0;}
 .cta__eyebrow{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--gold);display:flex;align-items:center;gap:15px;margin-bottom:30px}
 .cta__eyebrow::before{content:"";width:40px;height:1px;background:var(--gold)}
-.cta__left h2{font-size:clamp(2.4rem,4.5vw,3.6rem);line-height:1.1;font-weight:400;margin-bottom:20px;letter-spacing:-.02em}
-.cta__left h2 i{font-style:italic;font-family:'Playfair Display',serif;color:var(--gold);font-weight:400}
+.cta__left h2{font-family:'Montserrat',sans-serif;font-size:clamp(2.4rem,4.5vw,3.6rem);line-height:1.15;font-weight:300;font-style:normal;color:var(--txt-dark);margin-bottom:20px;letter-spacing:-.02em}
+.cta__left h2 .cta__gold{color:var(--gold);font-style:normal}
 .cta__sub{font-size:.85rem;line-height:1.6;color:var(--txt-soft);margin-bottom:45px;max-width:320px}
 
 .cta__contacts{border-top:1px solid var(--line-l);padding-top:20px}
@@ -317,7 +363,7 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
 .form--dark select option{background:#0a0c0b;color:#fff}
 .form--dark input::placeholder{color:#5a5c5b}
 
-.form__footer{display:flex;justify-content:space-between;align-items:flex-end;margin-top:20px;border-top:1px solid #2a2c2b;padding-top:25px}
+.form__footer{display:flex;justify-content:space-between;align-items:flex-end;margin-top:20px;padding-top:15px}
 .form__policy{font-size:.65rem;color:#5a5c5b;max-width:180px;line-height:1.5}
 .btn--text{background:none;border:none;color:#fff;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;font-weight:600;display:flex;align-items:center;gap:12px;cursor:pointer;padding:0;transition:.3s}
 .btn--text:hover{color:var(--gold)}
@@ -411,4 +457,36 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
   .btn{width:100%}
   .btn--link{width:auto}
   .footer__inner{flex-direction:column;gap:6px}
+}
+
+/* ================= UVEДОМЛЕНИЕ О COOKIE ================= */
+.cookie-banner{
+  position:fixed;bottom:24px;left:24px;right:auto;max-width:520px;z-index:99;
+  background:rgba(20,20,20,0.95);backdrop-filter:blur(12px);border:1px solid var(--line-d);
+  border-radius:6px;padding:18px 24px;box-shadow:0 12px 36px rgba(0,0,0,0.5);
+  opacity:0;transform:translateY(20px);visibility:hidden;
+  transition:opacity .4s var(--ease), transform .4s var(--ease), visibility .4s;
+}
+.cookie-banner.is-visible{
+  opacity:1;transform:translateY(0);visibility:visible;
+}
+.cookie-banner__inner{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.cookie-banner__text{
+  margin:0;font-size:.76rem;color:var(--txt-light);line-height:1.5;
+}
+.cookie-banner__text a{
+  color:var(--gold);text-decoration:underline;text-underline-offset:3px;
+}
+.cookie-banner__text a:hover{
+  color:var(--gold-2);
+}
+.cookie-banner__btn{
+  padding:10px 22px;font-size:.65rem;flex:none;
+}
+@media(max-width:600px){
+  .cookie-banner{bottom:16px;left:16px;right:16px;max-width:none;}
+  .cookie-banner__inner{flex-direction:column;align-items:flex-start;gap:12px;}
+  .cookie-banner__btn{width:100%;}
 }

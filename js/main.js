@@ -183,5 +183,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  document.getElementById('year').textContent = new Date().getFullYear();
+  /* --- Cookie Banner --- */
+  const cookieBanner = document.getElementById('cookieBanner');
+  const cookieAccept = document.getElementById('cookieAccept');
+  if (cookieBanner && !localStorage.getItem('artneolab_cookie_accepted')) {
+    setTimeout(() => {
+      cookieBanner.classList.add('is-visible');
+    }, 1000);
+  }
+  cookieAccept?.addEventListener('click', () => {
+    localStorage.setItem('artneolab_cookie_accepted', 'true');
+    cookieBanner.classList.remove('is-visible');
+  });
+
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 });
