@@ -158,20 +158,60 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
 .pcard__arrow img{width:22px}
 .pcard:hover .pcard__arrow{opacity:1;transform:translateX(5px)}
 
-/* ================= БЕГУЩАЯ СТРОКА ================= */
+/* ================= БЕГУЩИЕ СТРОКИ ================= */
+.tickers-wrap{
+  width:100%;
+  margin-top:clamp(20px,2.2vw,32px);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
 .ticker{
   width:100%;
   overflow:hidden;
-  background:var(--black-2);
-  border:1px solid var(--line-d);
-  padding:16px 0;
-  margin-top:clamp(20px,2.2vw,32px);
+  padding:15px 0;
   user-select:none;
 }
+.ticker--dark{
+  background:var(--black-2);
+  border:1px solid var(--line-d);
+}
+.ticker--dark .ticker__group span{
+  color:rgba(255,255,255,.9);
+}
+.ticker--dark .ticker__sep{
+  color:var(--gold);
+}
+
+.ticker--gold{
+  background:var(--gold);
+  border:1px solid var(--gold-2);
+}
+.ticker--gold .ticker__group span{
+  color:#ffffff;
+}
+.ticker--gold .ticker__sep{
+  color:rgba(255,255,255,.8);
+}
+
+.ticker--red{
+  background:#A83232;
+  border:1px solid #C44343;
+}
+.ticker--red .ticker__group span{
+  color:#ffffff;
+}
+.ticker--red .ticker__sep{
+  color:rgba(255,255,255,.8);
+}
+
 .ticker__track{
   display:flex;
   width:max-content;
   animation:ticker 34s linear infinite;
+}
+.ticker__track--reverse{
+  animation:ticker-reverse 34s linear infinite;
 }
 .ticker:hover .ticker__track{
   animation-play-state:paused;
@@ -184,17 +224,15 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
 }
 .ticker__group span{
   font-family:'Montserrat',sans-serif;
-  font-size:clamp(.8rem,1.05vw,1rem);
+  font-size:clamp(.68rem,.85vw,.82rem);
   font-weight:500;
-  letter-spacing:.16em;
+  letter-spacing:.22em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.9);
 }
 .ticker__sep{
   font-style:normal;
-  color:var(--gold);
-  margin:0 clamp(20px,2.5vw,36px);
-  font-size:.72rem;
+  margin:0 clamp(16px,2vw,28px);
+  font-size:.65rem;
   flex:none;
   display:inline-block;
   opacity:.9;
@@ -202,6 +240,10 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
 @keyframes ticker{
   0%{transform:translateX(0);}
   100%{transform:translateX(-50%);}
+}
+@keyframes ticker-reverse{
+  0%{transform:translateX(-50%);}
+  100%{transform:translateX(0);}
 }
 
 /* ================= НАПРАВЛЕНИЯ ================= */
