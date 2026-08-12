@@ -161,18 +161,25 @@ document.addEventListener('DOMContentLoaded', () => {
         'Телефон': form.querySelector('[name="phone"]')?.value || '',
         'Тип объекта': form.querySelector('[name="type"]')?.value || 'Не указан',
         'Что необходимо оформить': form.querySelector('[name="message"]')?.value || 'Не указано',
-        '_subject': 'Новая заявка с сайта АРТНЕО',
+        '_subject': 'Новая заявка с сайта АРТНЕО ЛАБОРАТОРИЯ',
         '_captcha': 'false'
       };
-      const res = await fetch('https://formsubmit.co/ajax/aliancekd@yandex.ru', {
+
+      let res = await fetch('send.php', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify(payload)
-      });
-      if (res.ok) {
+      }).catch(() => null);
+
+      if (!res || !res.ok) {
+        res = await fetch('https://formsubmit.co/ajax/aliancekd@yandex.ru', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      }
+
+      if (res && res.ok) {
         form.reset();
         status.textContent = 'Спасибо! Свяжемся с вами в ближайшее время.';
       } else {
