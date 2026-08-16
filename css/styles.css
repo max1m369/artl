@@ -114,9 +114,10 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
   border-top:1px solid rgba(255,255,255,.06);background:rgba(10,10,10,.4)}
 .marquee__track{display:flex;animation:marquee 45s linear infinite}
 .marquee:hover .marquee__track{animation-play-state:paused}
+.marquee__group{display:flex;align-items:center;white-space:nowrap;flex-shrink:0}
 .marquee span{font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:400;
   letter-spacing:.26em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.marquee i{font-style:normal;color:var(--gold);margin:0 14px}
+.marquee__star{width:11px;height:11px;margin:0 14px;fill:var(--gold);opacity:.85;flex:none;display:inline-block;vertical-align:middle}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ================= О КОМПАНИИ + ЦИФРЫ ================= */
@@ -183,7 +184,7 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
   text-transform:uppercase;
   color:#ffffff;
 }
-.ticker--gold .ticker__star{
+.ticker__star{
   width:12px;
   height:12px;
   margin:0 14px;
@@ -192,6 +193,11 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
   flex:none;
   display:inline-block;
   vertical-align:middle;
+}
+.ticker__star--gold{
+  fill:var(--gold);
+  margin:0 clamp(16px,2vw,28px);
+  opacity:.95;
 }
 .ticker__track{
   display:flex;
