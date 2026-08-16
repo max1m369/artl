@@ -170,18 +170,28 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
 }
 .ticker--gold{
   background:var(--gold);
-  border-top:1px solid var(--gold-2);
-  border-bottom:1px solid var(--gold-2);
+  border-top:1px solid rgba(255,255,255,.15);
+  border-bottom:1px solid rgba(255,255,255,.15);
   margin-top:0;
-  padding:14px 0;
+  padding:16px 0;
 }
 .ticker--gold .ticker__group span{
+  font-family:'Montserrat',sans-serif;
+  font-size:.62rem;
+  font-weight:400;
+  letter-spacing:.26em;
+  text-transform:uppercase;
   color:#ffffff;
-  font-weight:600;
-  letter-spacing:.22em;
 }
-.ticker--gold .ticker__sep{
-  color:rgba(255,255,255,.85);
+.ticker--gold .ticker__star{
+  width:12px;
+  height:12px;
+  margin:0 14px;
+  fill:#ffffff;
+  opacity:.9;
+  flex:none;
+  display:inline-block;
+  vertical-align:middle;
 }
 .ticker__track{
   display:flex;
