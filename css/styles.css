@@ -123,11 +123,18 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
 /* ================= О КОМПАНИИ + ЦИФРЫ ================= */
 .about{display:grid;grid-template-columns:1fr 1fr;background:var(--black-2);align-items:stretch}
 .about__left{display:flex;flex-direction:column;justify-content:center;
-  gap:clamp(60px,10vw,140px);
+  gap:clamp(36px,5vw,64px);
   padding-top:clamp(60px,8vw,110px);padding-bottom:clamp(60px,8vw,110px);
   padding-left:clamp(20px,3.2vw,56px);
   padding-right:max(clamp(20px,3.2vw,56px), calc((100vw - 1440px)/2 + clamp(20px,3.2vw,56px)))}
-.about h2{margin-bottom:30px}
+.about h2{margin-bottom:24px}
+.about__text{
+  margin-top:22px;
+  color:var(--txt-light);
+  font-size:clamp(.84rem,0.92vw,.96rem);
+  line-height:1.85;
+  max-width:520px;
+}
 .stats{display:flex;flex-wrap:wrap;gap:clamp(34px,5vw,70px);min-width:170px}
 .stats__num{display:block;font-family:'Montserrat',sans-serif;font-size:clamp(2.6rem,4.6vw,4.2rem);
   font-weight:300;color:var(--gold);line-height:1}
