@@ -12,7 +12,7 @@
   --txt-light:rgba(255,255,255,.62);
   --line-d:rgba(255,255,255,.12);
   --line-l:rgba(26,26,26,.12);
-  --head:140px;
+  --head:110px;
   --ease:cubic-bezier(.22,.61,.36,1);
 }
 
@@ -69,11 +69,12 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
   display:flex;align-items:center;transition:.4s var(--ease);
   background:linear-gradient(rgba(13,13,13,.72),rgba(13,13,13,0));
 }
-.header.is-stuck{background:rgba(13,13,13,.96);height:88px;backdrop-filter:blur(10px);border-bottom:1px solid var(--line-d)}
-.logo{display:flex;align-items:center;margin-top:10px;transition:.4s var(--ease)}
-.logo img{width:auto;height:clamp(90px,10vw,140px);max-width:40vw;object-fit:contain;object-position:left center;transition:.4s var(--ease)}
+.header.is-stuck{background:rgba(13,13,13,.96);height:76px;backdrop-filter:blur(10px);border-bottom:1px solid var(--line-d)}
+.header__inner{display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:nowrap;gap:24px}
+.logo{display:flex;align-items:center;margin-top:10px;flex-shrink:0;transition:.4s var(--ease)}
+.logo img{height:clamp(52px,5.5vw,72px);width:auto;max-width:320px;object-fit:contain;object-position:left center;transition:.4s var(--ease)}
 .header.is-stuck .logo{margin-top:0}
-.header.is-stuck .logo img{height:65px;max-width:30vw}
+.header.is-stuck .logo img{height:48px;max-width:240px}
 
 .nav{display:flex;align-items:center;gap:clamp(18px,2.4vw,42px)}
 .nav__link{font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:400;
@@ -479,8 +480,11 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
   }
 }
 @media (max-width:720px){
-  :root{--head:75px}
-  .logo img{width:160px;max-height:55px}
+  :root{--head:80px}
+  .logo{margin-top:6px}
+  .logo img{height:46px;width:auto;max-width:200px;object-fit:contain;object-position:left center}
+  .header.is-stuck .logo{margin-top:0}
+  .header.is-stuck .logo img{height:40px}
   .hero{min-height:auto;padding:110px 0 90px}
   .hero__media::after{background:linear-gradient(rgba(10,10,10,.72),rgba(10,10,10,.9))}
   .stats{flex-direction:row;flex-wrap:wrap;gap:24px}
