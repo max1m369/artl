@@ -112,7 +112,7 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
 .marquee{position:absolute;left:0;bottom:0;width:100%;z-index:2;overflow:hidden;
   display:flex;white-space:nowrap;padding:16px 0;
   border-top:1px solid rgba(255,255,255,.06);background:rgba(10,10,10,.4)}
-.marquee__track{display:flex;width:max-content;animation:marquee 45s linear infinite}
+.marquee__track{display:flex;width:max-content;animation:marquee 70s linear infinite}
 .marquee:hover .marquee__track{animation-play-state:paused}
 .marquee__group{display:flex;align-items:center;white-space:nowrap;flex-shrink:0}
 .marquee span{font-family:'Montserrat',sans-serif;font-size:.62rem;font-weight:400;
@@ -183,6 +183,9 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
   margin-top:0;
   padding:16px 0;
 }
+.ticker--gold .ticker__track{
+  animation:ticker 75s linear infinite;
+}
 .ticker--gold .ticker__group span{
   font-family:'Montserrat',sans-serif;
   font-size:.62rem;
@@ -209,7 +212,7 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
 .ticker__track{
   display:flex;
   width:max-content;
-  animation:ticker 34s linear infinite;
+  animation:ticker 60s linear infinite;
 }
 .ticker:hover .ticker__track{
   animation-play-state:paused;
