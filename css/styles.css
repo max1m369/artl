@@ -12,7 +12,7 @@
   --txt-light:rgba(255,255,255,.62);
   --line-d:rgba(255,255,255,.12);
   --line-l:rgba(26,26,26,.12);
-  --head:145px;
+  --head:230px;
   --ease:cubic-bezier(.22,.61,.36,1);
 }
 
@@ -69,12 +69,12 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
   display:flex;align-items:center;transition:.4s var(--ease);
   background:linear-gradient(rgba(13,13,13,.72),rgba(13,13,13,0));
 }
-.header.is-stuck{background:rgba(13,13,13,.96);height:80px;backdrop-filter:blur(10px);border-bottom:1px solid var(--line-d)}
+.header.is-stuck{background:rgba(13,13,13,.96);height:90px;backdrop-filter:blur(10px);border-bottom:1px solid var(--line-d)}
 .header__inner{display:flex;align-items:center;justify-content:space-between;width:100%;flex-wrap:nowrap;gap:24px}
 .logo{display:flex;align-items:center;margin-top:10px;flex-shrink:0;transition:.4s var(--ease)}
-.logo img{height:clamp(80px,8vw,112px);width:auto;max-width:clamp(280px,28vw,420px);object-fit:contain;object-position:left center;transition:.4s var(--ease)}
+.logo img{height:clamp(150px,15vw,224px);width:auto;max-width:clamp(450px,45vw,650px);object-fit:contain;object-position:left center;transition:.4s var(--ease)}
 .header.is-stuck .logo{margin-top:0}
-.header.is-stuck .logo img{height:52px;max-width:240px}
+.header.is-stuck .logo img{height:62px;max-width:260px}
 
 .nav{display:flex;align-items:center;gap:clamp(18px,2.4vw,42px)}
 .nav__link{font-family:'Montserrat',sans-serif;font-size:.64rem;font-weight:400;
@@ -480,12 +480,12 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
   }
 }
 @media (max-width:720px){
-  :root{--head:80px}
-  .logo{margin-top:6px}
-  .logo img{height:46px;width:auto;max-width:200px;object-fit:contain;object-position:left center}
+  :root{--head:120px}
+  .logo{margin-top:8px}
+  .logo img{height:clamp(75px, 18vw, 92px);width:auto;max-width:240px;object-fit:contain;object-position:left center}
   .header.is-stuck .logo{margin-top:0}
-  .header.is-stuck .logo img{height:40px}
-  .hero{min-height:auto;padding:110px 0 90px}
+  .header.is-stuck .logo img{height:46px}
+  .hero{min-height:auto;padding:120px 0 90px}
   .hero__media::after{background:linear-gradient(rgba(10,10,10,.72),rgba(10,10,10,.9))}
   .stats{flex-direction:row;flex-wrap:wrap;gap:24px}
   .stats li{min-width:100px}
