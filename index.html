@@ -468,7 +468,11 @@
         </label>
         
         <div class="form__footer">
-          <p class="form__policy">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html" target="_blank" style="color:var(--gold);text-decoration:underline;text-underline-offset:2px;">политикой конфиденциальности</a>.</p>
+          <label class="form__policy-check">
+            <input type="checkbox" name="policy" class="form__checkbox" checked required>
+            <span class="form__policy-box" aria-hidden="true"></span>
+            <span class="form__policy-txt">Нажимая кнопку, вы соглашаетесь с <a href="privacy.html" target="_blank">политикой конфиденциальности</a>.</span>
+          </label>
           <button type="submit" class="btn btn--text">ОТПРАВИТЬ <img src="assets/icons/ui-arrow.svg" alt=""></button>
         </div>
         <p class="form__status" id="formStatus" role="status"></p>
