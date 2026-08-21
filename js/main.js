@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     let ok = true;
     form.querySelectorAll('[required]').forEach(inp => {
-      const f = inp.closest('.field');
+      const f = inp.closest('.form__field-box') || inp.closest('.form__check') || inp.closest('.field');
       const valid = inp.type === 'checkbox' ? inp.checked
         : inp.name === 'phone' ? inp.value.replace(/\D/g, '').length === 11
         : inp.value.trim().length > 1;
@@ -181,6 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (res && res.ok) {
         form.reset();
+        form.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = true);
         status.textContent = 'Спасибо! Свяжемся с вами в ближайшее время.';
       } else {
         throw new Error('Submit failed');
