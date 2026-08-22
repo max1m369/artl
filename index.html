@@ -98,7 +98,7 @@
     <p class="eyebrow reveal">Архитектура в деталях</p>
     <h1 class="reveal">Создаем арт-объекты,<br>которые становятся<br>точками притяжения</h1>
     <p class="hero__lead reveal">
-      Мы проектируем и оформляем входные группы, оформление витрин, отелей, гостиниц, арт-объекты, малые архитектурные формы, и комплексное оформление и озеленение офисных пространств
+      Мы проектируем и оформляем входные группы, оформление витрин, отелей, гостиниц, арт-объекты, малые архитектурные формы, комплексное оформление и озеленение офисных пространств
     </p>
     <div class="hero__actions reveal">
       <a href="#projects" class="btn btn--gold">Смотреть проекты</a>
@@ -437,80 +437,92 @@
 
     <div class="cta__right reveal">
       <h3 class="form__title">ОСТАВИТЬ ЗАЯВКУ</h3>
-      <p class="form__subtitle">Расскажите о вашем проекте, а мы предложим наилучшее решение для его реализации.</p>
       
-      <form class="form form--dark form--ref" id="requestForm" novalidate>
-        <div class="form__field-box">
-          <svg class="form__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-          <input type="text" name="name" placeholder="Ваше имя*" required>
+      <form class="form form--dark" id="requestForm" novalidate>
+        <div class="form__row">
+          <div class="field">
+            <label class="field__lbl">ВАШЕ ИМЯ</label>
+            <div class="field__input-wrap">
+              <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <input type="text" name="name" placeholder="" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="field__lbl">ТЕЛЕФОН</label>
+            <div class="field__input-wrap">
+              <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <input type="tel" name="phone" placeholder="+7" required>
+            </div>
+          </div>
         </div>
 
-        <div class="form__field-box">
-          <svg class="form__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          <input type="tel" name="phone" placeholder="Номер телефона*" required>
+        <div class="field field--full">
+          <label class="field__lbl">ТИП ОБЪЕКТА</label>
+          <div class="field__input-wrap field__input-wrap--select">
+            <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+              <line x1="9" y1="6" x2="11" y2="6"></line>
+              <line x1="13" y1="6" x2="15" y2="6"></line>
+              <line x1="9" y1="10" x2="11" y2="10"></line>
+              <line x1="13" y1="10" x2="15" y2="10"></line>
+              <path d="M10 22v-4h4v4"></path>
+            </svg>
+            <select name="type">
+              <option value="" disabled selected hidden>Выберите тип объекта</option>
+              <option value="Отели и гостиницы">Отели и гостиницы</option>
+              <option value="Витрины">Витрины</option>
+              <option value="Входные группы">Входные группы</option>
+              <option value="Парки и общественные пространства">Парки и общественные пространства</option>
+              <option value="Офисные пространства">Офисные пространства</option>
+              <option value="ТЦ и моллы">ТЦ и моллы</option>
+              <option value="Другое">Другое</option>
+            </select>
+            <svg class="field__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
         </div>
 
-        <div class="form__field-box form__field-box--select">
-          <svg class="form__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="4" y="2" width="16" height="20" rx="2"></rect>
-            <line x1="9" y1="6" x2="11" y2="6"></line>
-            <line x1="13" y1="6" x2="15" y2="6"></line>
-            <line x1="9" y1="10" x2="11" y2="10"></line>
-            <line x1="13" y1="10" x2="15" y2="10"></line>
-            <line x1="9" y1="14" x2="11" y2="14"></line>
-            <line x1="13" y1="14" x2="15" y2="14"></line>
-            <path d="M10 22v-4h4v4"></path>
-          </svg>
-          <select name="type">
-            <option value="" disabled selected hidden>Тип объекта</option>
-            <option value="Ресторан">Ресторан</option>
-            <option value="Витрины">Витрины</option>
-            <option value="Парк">Парк</option>
-            <option value="ТЦ">ТЦ</option>
-            <option value="Другое">Другое</option>
-          </select>
-          <svg class="form__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
+        <div class="field field--full">
+          <label class="field__lbl">ЧТО НЕОБХОДИМО ОФОРМИТЬ?</label>
+          <div class="field__input-wrap">
+            <svg class="field__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+            </svg>
+            <input type="text" name="message" placeholder="">
+          </div>
         </div>
 
-        <div class="form__field-box form__field-box--textarea">
-          <svg class="form__icon form__icon--top" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
-          </svg>
-          <textarea name="message" placeholder="Опишите, что необходимо оформить" rows="3"></textarea>
+        <div class="form__footer">
+          <div class="form__consents-group">
+            <label class="form__check">
+              <input type="checkbox" name="consent" class="form__check-input" required>
+              <span class="form__check-box" aria-hidden="true"></span>
+              <span class="form__check-label">
+                Нажимая кнопку, вы соглашаетесь с <a href="privacy.html#consent" target="_blank">согласием на обработку персональных данных</a><span class="form__req">*</span>
+              </span>
+            </label>
+
+            <label class="form__check">
+              <input type="checkbox" name="policy" class="form__check-input" required>
+              <span class="form__check-box" aria-hidden="true"></span>
+              <span class="form__check-label">
+                Я ознакомлен(а) с <a href="privacy.html#policy" target="_blank">политикой конфиденциальности</a><span class="form__req">*</span>
+              </span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn--submit-arrow is-disabled" id="submitBtn" disabled>
+            <span>ОТПРАВИТЬ</span>
+            <img src="assets/icons/ui-arrow.svg" alt="" class="submit-arrow-icon">
+          </button>
         </div>
-        
-        <div class="form__consents">
-          <label class="form__check">
-            <input type="checkbox" name="consent" class="form__check-input" required>
-            <span class="form__check-box" aria-hidden="true"></span>
-            <span class="form__check-label">
-              Нажимая кнопку, я даю <a href="privacy.html#consent" target="_blank">Согласие на обработку персональных данных</a> на условиях Согласия на обработку персональных данных <span class="form__req">*</span>
-            </span>
-          </label>
-
-          <label class="form__check">
-            <input type="checkbox" name="policy" class="form__check-input" required>
-            <span class="form__check-box" aria-hidden="true"></span>
-            <span class="form__check-label">
-              Я ознакомлен(а) с <a href="privacy.html#policy" target="_blank">Политикой в отношении обработки персональных данных</a> <span class="form__req">*</span>
-            </span>
-          </label>
-
-          <div class="form__note">* — обязательные документы</div>
-        </div>
-
-        <button type="submit" class="btn btn--form-submit is-disabled" id="submitBtn" disabled>ОТПРАВИТЬ</button>
-
-        <p class="form__bottom-disclaimer">
-          Нажимая кнопку «Отправить», вы подтверждаете, что ознакомлены с выбранными документами и даёте согласие на обработку предоставленных данных.
-        </p>
 
         <p class="form__status" id="formStatus" role="status"></p>
       </form>

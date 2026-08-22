@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     let ok = true;
     form.querySelectorAll('[required]').forEach(inp => {
-      const f = inp.closest('.form__field-box') || inp.closest('.form__check') || inp.closest('.field');
+      const f = inp.closest('.field__input-wrap') || inp.closest('.form__check') || inp.closest('.field');
       const valid = inp.type === 'checkbox' ? inp.checked
         : inp.name === 'phone' ? inp.value.replace(/\D/g, '').length === 11
         : inp.value.trim().length > 1;
