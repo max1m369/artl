@@ -624,30 +624,34 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
 }
 
 .btn--submit-arrow{
-  background:none;
-  border:none;
+  background:var(--gold);
+  border:1px solid var(--gold);
+  border-radius:4px;
   color:#fff;
   font-family:'Montserrat',sans-serif;
   font-size:.72rem;
   text-transform:uppercase;
-  letter-spacing:.12em;
+  letter-spacing:.14em;
   font-weight:600;
   display:inline-flex;
   align-items:center;
   gap:10px;
   cursor:pointer;
-  padding:8px 0;
-  transition:color .3s var(--ease), opacity .3s var(--ease);
+  padding:12px 24px;
+  transition:all .3s var(--ease);
   flex-shrink:0;
   outline:none;
 }
 .btn--submit-arrow:hover:not(:disabled):not(.is-disabled){
-  color:var(--gold);
+  background:var(--gold-2);
+  border-color:var(--gold-2);
+  box-shadow:0 6px 20px rgba(192,138,62,0.35);
 }
 .btn--submit-arrow .submit-arrow-icon{
   width:14px;
   height:14px;
   transition:transform .3s var(--ease);
+  filter:brightness(0) invert(1);
 }
 .btn--submit-arrow:hover:not(:disabled):not(.is-disabled) .submit-arrow-icon{
   transform:translate(3px, 3px);
@@ -656,6 +660,7 @@ h3{font-size:.86rem;font-weight:500;letter-spacing:.06em;text-transform:uppercas
 .btn--submit-arrow.is-disabled{
   opacity:.35;
   cursor:not-allowed;
+  box-shadow:none;
 }
 .form__status{
   margin:12px 0 0;
