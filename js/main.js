@@ -142,6 +142,44 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --- Форма --- */
   const form = document.getElementById('requestForm');
   const status = document.getElementById('formStatus');
+  const submitBtn = document.getElementById('submitBtn');
+  const consentChecks = form ? form.querySelectorAll('.form__check-input[required]') : [];
+
+  const updateSubmitState = () => {
+    if (!submitBtn) return;
+    const allChecked = [...consentChecks].every(cb => cb.checked);
+    submitBtn.disabled = !allChecked;
+    submitBtn.classList.toggle('is-disabled', !allChecked);
+  };
+
+  consentChecks.forEach(cb => {
+    cb.addEventListener('change', () => {
+      const parent = cb.closest('.form__check');
+      if (cb.checked) {
+        parent?.classList.remove('has-error');
+      }
+      updateSubmitState();
+    });
+  });
+
+  // Highlight checkboxes in red when clicking on locked button
+  form?.addEventListener('click', (e) => {
+    if (e.target.closest('#submitBtn') && submitBtn && submitBtn.disabled) {
+      e.preventDefault();
+      consentChecks.forEach(cb => {
+        if (!cb.checked) {
+          const parent = cb.closest('.form__check');
+          parent?.classList.remove('has-error');
+          void parent?.offsetWidth;
+          parent?.classList.add('has-error');
+        }
+      });
+      status.textContent = 'Для отправки необходимо подтвердить согласие с документами.';
+    }
+  });
+
+  updateSubmitState();
+
   form?.addEventListener('submit', async e => {
     e.preventDefault();
     let ok = true;
@@ -153,7 +191,10 @@ document.addEventListener('DOMContentLoaded', () => {
       f?.classList.toggle('has-error', !valid);
       if (!valid) ok = false;
     });
-    if (!ok) { status.textContent = 'Проверьте заполнение полей.'; return; }
+    if (!ok) {
+      status.textContent = 'Проверьте заполнение полей и согласий.';
+      return;
+    }
     status.textContent = 'Отправляем…';
     try {
       const payload = {
@@ -181,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (res && res.ok) {
         form.reset();
-        form.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = true);
+        updateSubmitState();
         status.textContent = 'Спасибо! Свяжемся с вами в ближайшее время.';
       } else {
         throw new Error('Submit failed');
