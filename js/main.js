@@ -228,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error('Submit failed');
       }
     } catch {
-      status.textContent = 'Не удалось отправить. Позвоните нам по телефону +7 (925) 535-30-08.';
+      status.textContent = 'Не удалось отправить. Позвоните нам по телефону +7 (926) 368-60-05.';
     }
   });
 
